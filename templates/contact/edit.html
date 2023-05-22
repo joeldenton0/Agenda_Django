@@ -1,0 +1,31 @@
+{% extends 'layouts\base.html' %}
+
+{% block title %} Editar contacto {% endblock %}
+
+{% block styles %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'agenda\css\forms.css' %}">
+{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="alert-success"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}    
+    <span class="aux_btns_form">
+        <a href="{% url 'contact' %}">Volver atrás</a>
+    </span>
+    <form href="{% url 'contact_edit' id=id %}" method="POST">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <div class="wrapper">
+            <input type="submit" class="btn_send" value="Enviar">
+        </div>
+    </form>     
+{% endblock %}
+

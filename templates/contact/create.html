@@ -1,0 +1,24 @@
+{% extends 'layouts\base.html' %}
+
+{% block title %} Añadir contacto {% endblock %}
+
+{% block styles %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'agenda\css\forms.css' %}">
+{% endblock %}
+
+{% block content %}
+    <span class="aux_btns_form">
+        <a href="{% url 'contact' %}">Volver atrás</a>
+    </span>
+    <form href="{% url 'contact_create' %}" method="POST">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <div class="wrapper">
+            <input type="submit" class="btn_send" value="Enviar">
+        </div>
+    </form>     
+{% endblock %}
+

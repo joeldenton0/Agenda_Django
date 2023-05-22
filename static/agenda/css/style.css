@@ -1,0 +1,212 @@
+:root {
+    --color-primary: rgb(155, 88, 218);
+    --color-secondary: rgb(0, 255, 255);
+    --color-text: white;
+    --font-main: Roboto-Bold;
+    --font-text: Comfortaa-Regular;
+}
+
+/* Main settings */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-text);
+}
+
+@font-face {
+    font-family: Roboto-Bold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+@font-face {
+    font-family: Comfortaa-Regular;
+    src: url("../fonts/Comfortaa-Regular.ttf");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+}
+
+/* End Main settings */
+
+/* Layouts settings */
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-primary);
+}
+
+nav ul {
+    display: flex;
+    padding: 20px;
+    list-style-type: none;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 50px;
+    color: var(--color-text);
+    font-size: 20px;
+}
+
+nav ul li a:hover {
+    color: var(--color-secondary);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    align-items: center;
+    height: 100vh;
+}
+
+.search {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px;
+}
+
+.search_bar {
+    width: 80vh;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.btn_search {
+    padding: 5px;
+    width: 20vh;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 0px;
+}
+
+.btn_search:hover {
+    background-color: var(--color-secondary);
+    color: black;
+}
+
+.list {
+    list-style-type: none;
+    border: solid 1px;
+    width: 102vh;
+}
+
+.list li {
+    padding: 5px;
+    border-style: inset;
+    display: flex;
+    justify-content: space-between;
+}
+
+main ul li:nth-child(even) {
+    background: var(--color-secondary);
+}
+
+.btn_detail {
+    text-decoration: none;
+    border: solid 1px;
+    padding: 2px;
+    background: greenyellow;
+}
+
+.btn_detail:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn_edit {
+    text-decoration: none;
+    border: solid 1px;
+    padding: 2px;
+    background:#ffc864;
+}
+
+.btn_edit:hover {
+    background-color: white;
+    color: black;
+}
+
+.btn_delete {
+    text-decoration: none;
+    border: solid 1px;
+    padding: 2px;
+    background: rgb(247 106 106);
+}
+
+.btn_delete:hover {
+    background-color: white;
+    color: black;
+}
+
+.aux_btns {
+    width: 102vh;
+    display: flex;
+    justify-content: flex-start;
+    margin: 5px;
+}
+
+.aux_btns a {
+    text-decoration: none;
+    padding-right: 10px;
+}
+
+.btn_all_contacts:hover {
+    color: black;
+}
+
+.btn_create:hover {
+    color: rgb(0, 255, 0);
+}
+
+.detail {
+    width: 102vh;
+    list-style-type: none;
+    border: solid 1px;
+}
+
+.detail li {
+    padding: 5px;
+}
+
+.alert-success {
+    width: 100%;
+    padding: 5px;
+    list-style-type: none;
+    background-color: rgb(0, 255, 0);
+    color: var(--color-primary);
+}
+
+/* End layouts settings */
+
+/* Index settings */
+
+.cards {
+    width: 102vh;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
+    margin: 10px;
+    text-decoration: none;
+}
+
+.card:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+/* End Index settings */

@@ -1,0 +1,25 @@
+{% extends 'layouts\base.html' %}
+
+{% block title %} Tareas {% endblock %}
+
+{% block content %}
+    <h1>Tareas</h1>
+
+    {% include 'todo\partials\search.html' %}
+
+    <span class="aux_btns">
+        <a href="{% url 'todo' %}" class="btn_all_contacts">Ver todas</a>
+        <a href="{% url 'todo_create' %}" class="btn_create">Añadir</a> 
+    </span>
+    <ul class="list">
+    {% for todo in todos %}
+        <li>{{ todo }}
+            <span>
+                <a href="{% url 'todo_view' id=todo.id %}" class="btn_detail">Ver</a>
+                <a href="{% url 'todo_edit' id=todo.id %}" class="btn_edit">Editar</a>
+                <a href="{% url 'todo_delete' id=todo.id %}" class="btn_delete">Borrar</a>
+            </span>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

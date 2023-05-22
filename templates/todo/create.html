@@ -1,0 +1,24 @@
+{% extends 'layouts\base.html' %}
+
+{% block title %} Añadir tarea {% endblock %}
+
+{% block styles %}
+{% load static %}
+    <link rel="stylesheet" href="{% static 'agenda\css\forms.css' %}">
+{% endblock %}
+
+{% block content %}
+    <span class="aux_btns_form">
+        <a href="{% url 'todo' %}">Volver atrás</a>
+    </span>
+    <form href="{% url 'todo_create' %}" method="POST">
+        <table>
+            {% csrf_token %}
+            {{ form.as_table }}
+        </table>
+        <div class="wrapper">
+            <input type="submit" class="btn_send" value="Enviar">
+        </div>
+    </form>     
+{% endblock %}
+

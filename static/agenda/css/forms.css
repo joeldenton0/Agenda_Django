@@ -1,0 +1,34 @@
+input {
+    width: 100%;
+    padding: 5px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_send {
+    width: 40%;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border: 0px;
+}
+
+.btn_send:hover {
+    background-color: var(--color-secondary);
+    color: black;
+}
+
+.aux_btns_form {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.aux_btns_form a {
+    text-decoration: none;
+    padding-right: 10px;
+}
+
