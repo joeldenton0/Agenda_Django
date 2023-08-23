@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Contacto {{ contact.name }} {% endblock %}
+
+{% block content %}
+
+<div class="detail-wrapper">
+    <span class="aux_btn_detail">
+        <a href="{% url 'contact' %}">Volver atrás</a>
+    </span>
+    <ul class="detail">
+        <li><b>Nombre: </b>{{ contact.name }}</li>
+        <li><b>Apellido: </b>{{ contact.last_name }}</li>
+        <li><b>Teléfono: </b>{{ contact.phone }}</li>
+        <li><b>Celular: </b>{{ contact.mobile }}</li>
+        <li><b>Email: </b>{{ contact.email }}</li>
+        <li><b>Empresa: </b>{{ contact.company }}</li>
+        <li><b>Fecha de inclusión: </b>{{ contact.date }}</li>
+        <li><b>Notas: </b>{{ contact.notes }}</li>
+    </ul>
+    <div class="btns-wrapper">
+        <a href="{% url 'contact_edit' id=contact.id %}" class="btn_edit">Editar</a>
+        <a href="{% url 'contact_delete' id=contact.id %}" class="btn_delete">Borrar</a>
+    </div>
+</div>
+
+{% endblock %}

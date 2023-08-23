@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Editar contacto {% endblock %}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'agenda/css/forms.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class="alert-success" {% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <span class="aux_btns_form">
+        <a href="{% url 'contact' %}">Volver atrás</a>
+    </span>
+    <form href="{% url 'contact_edit' id=id %}" method="POST">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+        <ul>
+            {% for error in form.non_field_errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% for hidden_field in form.hidden_fields %}
+        {% if hidden_field.errors %}
+        <ul>
+            {% for error in hidden_field.errors %}
+            <li>(Hidden field {{ hidden_field.name }}) {{ error }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {{ hidden_field }}
+        {% endfor %}
+        <table>
+            {% for field in form.visible_fields %}
+            <tr>
+                <th class="form-label">{{ field.label_tag }}</th>
+                <td class="form-field">
+                    {% if field.errors %}
+                    <ul>
+                        {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {{ field }}
+                    {% if field.help_text %}
+                    <br />{{ field.help_text }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="wrapper">
+            <input type="submit" class="btn_send" value="Guardar">
+        </div>
+    </form>
+</div>
+
+{% endblock %}

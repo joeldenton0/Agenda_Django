@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Tarea {{ todo.title }} {% endblock %}
+
+{% block content %}
+
+<div class="detail-wrapper">
+    <span class="aux_btn_detail">
+        <a href="{% url 'todo' %}">Volver atrás</a>
+    </span>
+    <ul class="detail">
+        <li><b>Título: </b>{{ todo.title }}</li>
+        <li><b>Descripción: </b>{{ todo.description }}</li>
+        <li><b>Fecha de creación: </b>{{ todo.date }}</li>
+        <li><b>Fecha finalización estimada: </b>{{ todo.estimated_end }}</li>
+        <li><b>Prioridad (1..5): </b>{{ todo.priority }}</li>
+    </ul>
+    <div class="btns-wrapper">
+        <a href="{% url 'todo_edit' id=todo.id %}" class="btn_edit">Editar</a>
+        <a href="{% url 'todo_delete' id=todo.id %}" class="btn_delete">Borrar</a>
+    </div>
+</div>
+
+{% endblock %}
